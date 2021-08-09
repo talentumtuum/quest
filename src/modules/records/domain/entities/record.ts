@@ -8,7 +8,7 @@ enum WeekDay {
 	Wednesday = 3,
 	Thursday = 4,
 	Friday = 5,
-	Saturday = 6
+	Saturday = 6,
 }
 
 export class Record implements RecordProperties {
@@ -23,7 +23,7 @@ export class Record implements RecordProperties {
 		if ([start, end].includes(WeekDay.Thursday)) {
 			throw new Error('Ooops! Thursday unavailable!');
 		}
-	}
+	};
 
 	public static get OVER_10_DAYS_DISCOUNT() {
 		return 0.9;
@@ -44,7 +44,7 @@ export class Record implements RecordProperties {
 	) {
 		this.price = price !== undefined
 			? price
-			: this.calculatePrice()
+			: this.calculatePrice();
 	}
 
 	private readonly calculatePrice = (): number => {

@@ -1,5 +1,5 @@
 import {Module} from '@nestjs/common';
-import { RecordsApplicationModule } from '../../records/application'
+import {RecordsApplicationModule} from '../../records/application';
 import {ApartmentsPersistenceModule} from '../persistence';
 import {ApartmentCommandsService, ApartmentQueriesService} from './services';
 

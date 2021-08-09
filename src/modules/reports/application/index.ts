@@ -1,5 +1,5 @@
 export * from './reports-application-module';
 export {
-    ReportCommandsService,
-    ReportQueriesService,
+	ReportCommandsService,
+	ReportQueriesService,
 } from './services';

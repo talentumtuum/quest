@@ -7,7 +7,7 @@ export class RecordQueriesService {
 		private readonly recordsRepository: RecordsRepository,
 	) {}
 
-	public getRecords = () => this.recordsRepository.getRecords()
+	public getRecords = async () => this.recordsRepository.getRecords();
 
-	public getRecordsInPeriod = async (from: Date, to: Date) => this.recordsRepository.getRecordsInPeriod(from, to)
+	public getRecordsInPeriod = async (from: Date, to: Date) => this.recordsRepository.getRecordsInPeriod(from, to);
 }

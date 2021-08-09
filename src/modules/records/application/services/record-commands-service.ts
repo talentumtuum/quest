@@ -1,7 +1,7 @@
 import {forwardRef, Inject, Injectable} from '@nestjs/common';
-import { ApartmentQueriesService } from '../../../apartments/application'
+import {ApartmentQueriesService} from '../../../apartments/application';
 import {Period, Record} from '../../domain';
-import { RecordsRepository } from '../../persistence'
+import {RecordsRepository} from '../../persistence';
 
 @Injectable()
 export class RecordCommandsService {
@@ -11,7 +11,7 @@ export class RecordCommandsService {
 		private readonly apartmentQueriesService: ApartmentQueriesService,
 	) {}
 
-	public createRecord = async ({ apartmentId, from, to }) => {
+	public createRecord = async ({apartmentId, from, to}) => {
  		const apartment = await this.apartmentQueriesService.getApartmentById(apartmentId);
 
 		 if (!apartment) {
@@ -21,7 +21,7 @@ export class RecordCommandsService {
 		const record = new Record(
 			apartment.apartmentId,
 			new Period(from, to),
-			apartment.price
+			apartment.price,
 		);
 
 		Record.validate(record);

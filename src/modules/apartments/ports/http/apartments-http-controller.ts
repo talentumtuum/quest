@@ -10,7 +10,7 @@ export class ApartmentsHttpController {
 
 	@Get()
 	public async getApartments(
-		@Query('type') type: string = 'all',
+		@Query('type') type = 'all',
 		@Query('from') from: string,
 		@Query('from') to: string,
 	) {
@@ -23,17 +23,16 @@ export class ApartmentsHttpController {
 			case 'available':
 				apartments = await this.apartmentQueriesService.getAvailableInPeriodApartments(
 					new Date(from),
-					new Date(to)
-				)
+					new Date(to),
+				);
 				break;
 		}
-		
-		
+
 		return {
 			success: true,
 			data: {
 				apartments,
-			}
-		}
+			},
+		};
 	}
 }

@@ -1,1 +1,1 @@
-export * from './map-errors-interceptor'
+export * from './map-errors-interceptor';

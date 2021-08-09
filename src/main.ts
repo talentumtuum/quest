@@ -1,7 +1,7 @@
 import {NestFactory} from '@nestjs/core';
 import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
 import {ApplicationModule} from './application-module';
-import { MapErrorsInterceptor } from './common/interceptors';
+import {MapErrorsInterceptor} from './common/interceptors';
 
 const main = async () => {
 	const app = await NestFactory.create(ApplicationModule);

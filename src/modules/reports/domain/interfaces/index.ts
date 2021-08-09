@@ -1,1 +1,1 @@
-export * from './month-visit-map'
+export * from './month-visit-map';

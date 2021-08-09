@@ -1,4 +1,4 @@
-import { endOfMonth, differenceInDays, startOfMonth } from 'date-fns'
+import {endOfMonth, differenceInDays, startOfMonth} from 'date-fns';
 
 export class Period {
 	public from: Date;
@@ -15,19 +15,19 @@ export class Period {
 		return diffInDays;
 	};
 
-	public calculateDaysByMonths = (): { [monthId: number]: number } => {
-		const startMonth = this.from.getMonth()
-		const endMonth = this.to.getMonth()
+	public calculateDaysByMonths = (): Record<number, number> => {
+		const startMonth = this.from.getMonth();
+		const endMonth = this.to.getMonth();
 
 		if (startMonth === endMonth) {
 			return {
-				[startMonth]: this.calculateDays()
-			}
+				[startMonth]: this.calculateDays(),
+			};
 		}
 
 		return {
 			[startMonth]: differenceInDays(endOfMonth(this.from), this.from) + 1,
-			[endMonth]: differenceInDays(this.to,  startOfMonth(this.to)) + 1
-		}
-	}
+			[endMonth]: differenceInDays(this.to, startOfMonth(this.to)) + 1,
+		};
+	};
 }

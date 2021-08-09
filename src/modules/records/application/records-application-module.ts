@@ -1,7 +1,7 @@
 import {forwardRef, Module} from '@nestjs/common';
-import { ApartmentsApplicationModule } from '../../apartments/application'
+import {ApartmentsApplicationModule} from '../../apartments/application';
+import {RecordsPersistenceModule} from '../persistence';
 import {RecordCommandsService, RecordQueriesService} from './services';
-import { RecordsPersistenceModule } from '../persistence'
 
 @Module({
 	imports: [RecordsPersistenceModule, forwardRef(() => ApartmentsApplicationModule)],

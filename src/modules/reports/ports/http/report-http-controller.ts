@@ -1,5 +1,5 @@
 import {Controller, Get, Query} from '@nestjs/common';
-import { ReportCommandsService, ReportQueriesService } from '../../application'
+import {ReportCommandsService, ReportQueriesService} from '../../application';
 
 @Controller('reports')
 export class ReportHttpController {
@@ -10,15 +10,15 @@ export class ReportHttpController {
 
 	@Get()
 	public async getReports(
-		@Query('from') from: string,
+	@Query('from') from: string,
 		@Query('to') to: string,
 	) {
-		const report = await this.reportCommandsService.createReport({ from, to });
+		const report = await this.reportCommandsService.createReport({from, to});
 		return {
 			success: true,
 			data: {
 				report,
-			}
-		}
+			},
+		};
 	}
 }

@@ -1,6 +1,6 @@
 import {Module} from '@nestjs/common';
 import {ApartmentsRepository} from './apartments-repository';
-import { ApartmentsMapper } from './apartments-mapper'
+import {ApartmentsMapper} from './apartments-mapper';
 
 @Module({
 	providers: [ApartmentsRepository, ApartmentsMapper],

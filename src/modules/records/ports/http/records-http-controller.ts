@@ -29,7 +29,7 @@ export class RecordsHttpController {
 			status: true,
 			data: {
 				records,
-			}
-		}
+			},
+		};
 	}
 }

@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common'
-import { RecordsMapper } from './records-mapper'
-import { RecordsRepository } from './records-repository'
+import {Module} from '@nestjs/common';
+import {RecordsMapper} from './records-mapper';
+import {RecordsRepository} from './records-repository';
 
 @Module({
-    providers: [RecordsRepository, RecordsMapper],
-    exports: [RecordsRepository],
+	providers: [RecordsRepository, RecordsMapper],
+	exports: [RecordsRepository],
 })
 export class RecordsPersistenceModule {}

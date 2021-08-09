@@ -1,6 +1,6 @@
 import {Module} from '@nestjs/common';
+import {ReportsApplicationModule} from '../../application';
 import {ReportHttpController} from './report-http-controller';
-import { ReportsApplicationModule } from '../../application'
 
 @Module({
 	imports: [ReportsApplicationModule],

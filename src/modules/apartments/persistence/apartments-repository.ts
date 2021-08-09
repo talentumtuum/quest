@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@nestjs/common';
-import { NEST_PGPROMISE_CONNECTION } from 'nestjs-pgpromise';
-import { IDatabase } from 'pg-promise';
-import { ApartmentsMapper } from './apartments-mapper';
+import {NEST_PGPROMISE_CONNECTION} from 'nestjs-pgpromise';
+import {IDatabase} from 'pg-promise';
+import {ApartmentsMapper} from './apartments-mapper';
 
 @Injectable()
 export class ApartmentsRepository {
@@ -15,7 +15,7 @@ export class ApartmentsRepository {
 		const apartments: any[] = await this.connection.query('SELECT * FROM apartment');
 
 		if (apartments.length === 0) {
-			return []
+			return [];
 		}
 
 		return this.apartmentsMapper.toAggregate(apartments);
@@ -25,9 +25,9 @@ export class ApartmentsRepository {
 		const [apartment] = await this.connection.query('SELECT * FROM apartment WHERE "apartmentId" = $1', [apartmentId]);
 
 		if (!apartment) {
-			return
+			return;
 		}
 
 		return this.apartmentsMapper.toAggregate(apartment);
-	}
+	};
 }

@@ -21,7 +21,7 @@ describe('Record', () => {
 
 		it('should calculate a price without discount', () => {
 			const roomPrice = 1000;
-			const expectedPrice = 10000;
+			const expectedPrice = 10_000;
 
 			const record = new Record(
 				1 as any,
@@ -53,7 +53,7 @@ describe('Record', () => {
 
 		it('should calculate a price with 20% discount', () => {
 			const roomPrice = 1000;
-			const expectedPrice = 17600;
+			const expectedPrice = 17_600;
 
 			const record = new Record(
 				1 as any,

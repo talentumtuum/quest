@@ -1,5 +1,5 @@
-import {Injectable } from '@nestjs/common';
-import { RecordQueriesService } from '../../../records/application';
+import {Injectable} from '@nestjs/common';
+import {RecordQueriesService} from '../../../records/application';
 import {ApartmentsRepository} from '../../persistence';
 
 @Injectable()
@@ -9,26 +9,22 @@ export class ApartmentQueriesService {
 		private readonly recordQueriesService: RecordQueriesService,
 	) {}
 
-	public getApartments = () => {
-		return this.apartmentsRepository.getApartments();
-	}
+	public getApartments = async () => this.apartmentsRepository.getApartments();
 
-	public getApartmentById = (apartmentId: bigint) => {
-		return this.apartmentsRepository.getApartmentById(apartmentId);
-	}
+	public getApartmentById = async (apartmentId: bigint) => this.apartmentsRepository.getApartmentById(apartmentId);
 
 	public getAvailableInPeriodApartments = async (from: Date, to: Date) => {
 		const apartments = await this.getApartments();
 
-		if (!apartments.length) {
+		if (apartments.length === 0) {
 			throw new Error('apartmens not found');
 		}
 
 		const records = await this.recordQueriesService.getRecordsInPeriod(from, to);
-		const recordIds = records.map(record => record.apartmentId);
-		const availableApartments = apartments.filter((apartment) => !recordIds.includes(apartment.apartmentId))
+		const recordIds = new Set(records.map(record => record.apartmentId));
+		const availableApartments = apartments.filter(apartment => !recordIds.has(apartment.apartmentId));
 
-		return availableApartments
-	}
+		return availableApartments;
+	};
 }
 

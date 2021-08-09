@@ -1,2 +1,2 @@
-export * from './reports-persistence-module'
-export * from './reports-repository'
+export * from './reports-persistence-module';
+export * from './reports-repository';
