@@ -17,5 +17,11 @@ Go to -> localhost:5050 (pgadmin) {
 }
 ```
 
+# test
+
+```sh
+yarn run test:unit
+```
+
 # Envs
 APPLICATION_HTTP_PORT = $INTEGER
