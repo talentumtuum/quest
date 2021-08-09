@@ -1,0 +1,39 @@
+{
+  "name": "quest",
+  "version": "0.0.0",
+  "main": "./dist/main.js",
+  "license": "UNLICENSED",
+  "scripts": {
+    "commit": "cz",
+    "start:dev": "tsnd --respawn ./src/main.ts",
+    "start:prod": "node ./dist/main.js",
+    "build": "tsc -b tsconfig.build.json",
+    "format": "xo --fix",
+    "test": "yarn run test:lint && yarn run test:unit",
+    "test:lint": "xo",
+    "test:unit": "jest"
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.0.6",
+    "@nestjs/core": "^8.0.6",
+    "@nestjs/platform-express": "^8.0.6",
+    "@nestjs/swagger": "^5.0.9",
+    "date-fns": "^2.23.0",
+    "nestjs-pgpromise": "^1.4.5",
+    "pg-promise": "^10.11.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.3.0",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "8.0.6",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.4.12",
+    "commitizen": "^4.2.4",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.4",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5",
+    "xo": "^0.43.0"
+  }
+}
