@@ -1,5 +1,6 @@
 import {Controller, Post, Get, Body} from '@nestjs/common';
 import {RecordCommandsService, RecordQueriesService} from '../../application';
+import { CreateRecordDto } from './dto'
 
 @Controller('records')
 export class RecordsHttpController {
@@ -9,7 +10,7 @@ export class RecordsHttpController {
 	) {}
 
 	@Post()
-	public async createRecord(@Body() body: { apartmentId: number, from: Date, to: Date }) {
+	public async createRecord(@Body() body: CreateRecordDto) {
 		await this.recordCommandsService.createRecord({
 			apartmentId: body.apartmentId,
 			from: new Date(body.from),
