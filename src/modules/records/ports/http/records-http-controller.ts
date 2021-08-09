@@ -9,7 +9,7 @@ export class RecordsHttpController {
 	) {}
 
 	@Post()
-	public async createRecord(@Body() body: any) {
+	public async createRecord(@Body() body: { apartmentId: number, from: Date, to: Date }) {
 		await this.recordCommandsService.createRecord({
 			apartmentId: body.apartmentId,
 			from: new Date(body.from),
